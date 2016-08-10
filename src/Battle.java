@@ -1,9 +1,14 @@
+package src;
+
 import java.awt.*;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+
+import static src.TileType.WALL;
+
 /**
  * An instance of a battle. Created by the runtime when a battle is needed
  * 
@@ -16,7 +21,6 @@ public class Battle
     WinCondition w;//The win condtion
     MapInstance m;//the map on which the battle occurs
     MovementCalc moveCalc;//Used to caclulate whether a unit can go to a space
-
     //Info about where the map is on the screen, and what it's showing
     int currentXPos = 0;
     int currentYPos = 0;
@@ -136,17 +140,17 @@ public class Battle
      */
     public void drawMap(Graphics g, int xPos, int yPos, int scale, int leftBound, int upperBound, int rightBound, int lowerBound){
         for (int x = leftBound; x<rightBound;x++){
-            for (int y = upperBound; y<lowerBound; yi++){
+            for (int y = upperBound; y<lowerBound; y++){
                 switch (m.maptiles[x][y]){
                     case WALL:
                     break;
                     case EMPTY:
                     g.setColor(Color.black);
-                    g.drawBox(x*scale + xPos, y*scale + yPos, x*scale + xPos + scale, y*scale + yPos +scale);
+                    g.drawRect(x*scale + xPos, y*scale + yPos, x*scale + xPos + scale, y*scale + yPos +scale);
                     break;
                     case SHORT_WALL:
                     g.setColor(Color.gray);
-                    g.fillBox(x*scale + xPos, y*scale + yPos, x*scale + xPos + scale, y*scale + yPos +scale);
+                    g.fillRect(x*scale + xPos, y*scale + yPos, x*scale + xPos + scale, y*scale + yPos +scale);
                     break;
                 }
             }
@@ -174,23 +178,22 @@ public class Battle
             g.drawImage(characterInfo,xPos,yPos,null);
             g.setColor(Color.black);
             g.setFont(new Font("Serif",Font.PLAIN,18));
-            g.drawText (m.unitAt(SelectX,SelectY).name,xPos+36, yPos+26);
-            
+            g.drawString(m.unitAt(SelectX,SelectY).name, xPos+36, yPos+26);
+
             //Stats
-            g.drawText (m.unitAt(SelectX,SelectY).HpCurrent,xPos+95, yPos+91);
-            g.drawText ("/",xPos+128, yPos+91);
-            g.drawText (m.unitAt(SelectX,SelectY).HpMax,xPos+168, yPos+91);
+            g.drawString (""+m.unitAt(SelectX,SelectY).HpCurrent,xPos+95, yPos+91);
+            g.drawString ("/",xPos+128, yPos+91);
+            g.drawString (""+m.unitAt(SelectX,SelectY).HpMax,xPos+168, yPos+91);
             
-            g.drawText (m.unitAt(SelectX,SelectY).power,xPos+95, yPos+145);
-            g.drawText (m.unitAt(SelectX,SelectY).aim,xPos+95, yPos+196);
-            g.drawText (m.unitAt(SelectX,SelectY).luck,xPos+95, yPos+252);
+            g.drawString (""+m.unitAt(SelectX,SelectY).power,xPos+95, yPos+145);
+            g.drawString (""+m.unitAt(SelectX,SelectY).aim,xPos+95, yPos+196);
+            g.drawString (""+m.unitAt(SelectX,SelectY).luck,xPos+95, yPos+252);
             
-            g.drawText (m.unitAt(SelectX,SelectY).moveCurrent,xPos+95, yPos+314);
-            g.drawText ("/",xPos+128, yPos+314);
-            g.drawText (m.unitAt(SelectX,SelectY).move,xPos+168, yPos+314);
+            g.drawString (""+m.unitAt(SelectX,SelectY).moveCurrent,xPos+95, yPos+314);
+            g.drawString ("/",xPos+128, yPos+314);
+            g.drawString (""+m.unitAt(SelectX,SelectY).move,xPos+168, yPos+314);
             
-            g.drawText (m.unitAt(SelectX,SelectY).equippedItem.name,xPos+110, yPos+367);
-            g.drawText (m.unitAt(SelectX,SelectY).heldItem.name,xPos+110, yPos+410);
+            g.drawString (""+m.unitAt(SelectX,SelectY).equippedItem.name,xPos+110, yPos+367);
         }
     }
     

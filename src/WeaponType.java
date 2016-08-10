@@ -1,3 +1,4 @@
+package src;
 
 /**
  * Enumeration class WeaponType - write a description of the enum class here

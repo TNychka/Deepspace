@@ -1,3 +1,4 @@
+package src;
 
 /**
  * The win condition overarching class

@@ -1,3 +1,4 @@
+package src;
 
 /**
  * Write a description of class Unit here.
@@ -11,6 +12,7 @@ public class Unit
     UnitSpecies species;
     String firstName;
     String lastName;
+    String name;
     ItemWeapon equippedItem;
     Item heldItem;
     AI unitAI;
@@ -28,6 +30,7 @@ public class Unit
     public Unit(String fIN, String lIN){
         firstName=fIN;
         lastName=lIN;
+        name = firstName + " " + lastName;
     }
     public void AIAction (MapInstance m){
         

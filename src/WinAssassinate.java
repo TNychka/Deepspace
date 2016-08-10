@@ -1,11 +1,11 @@
 package src;
 
 /**
- * Write a description of class AI here.
+ * Write a description of class WinAssinate here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class AI
+public class WinAssassinate extends WinCondition
 {
 }

@@ -1,6 +1,7 @@
-import javax.swing.JFrame;
-import java.awt.Dimension;
-import java.awt.Toolkit;
+package src;
+
+import javax.swing.*;
+import java.awt.*;
 /**
  * Deep Space
  * 
@@ -14,6 +15,7 @@ public class DeepSpace extends JFrame
     public static void main (String[] args){
         new DeepSpace();
     }
+
     public DeepSpace(){
         super("Deep Space");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//close on click

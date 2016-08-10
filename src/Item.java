@@ -1,11 +1,13 @@
 package src;
 
 /**
- * Write a description of class AI here.
+ * An item (weapon, armour, potion etc)
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class AI
+public class Item
 {
+    String name;
+    ItemType type;
 }
