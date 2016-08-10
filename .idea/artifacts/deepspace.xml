@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="deepspace">
+    <output-path>$PROJECT_DIR$/out/artifacts/deepspace</output-path>
+    <root id="archive" name="deepspace.jar">
+      <element id="module-output" name="Deepspace" />
+    </root>
+  </artifact>
+</component>
